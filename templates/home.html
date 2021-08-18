@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Request Light Curve Fit</h1>
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset class="formgroup">
+        <legend class="border-bottom mb-4">Enter in ZTF name.</legend>
+        <div class="form-group">
+          {{ form.ztfname.label(class="form-control-label") }}
+
+          {% if form.ztfname.errors %}
+            {{ form.ztfname(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.ztfname.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.ztfname(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      </fieldset>
+      <p></p>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+{% endblock content %}

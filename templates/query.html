@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1><a href="https://fritz.science/source/{{ fit_info.ztfname }}" target="_blank">{{ fit_info.ztfname }}</a></h1>
+    <p></p>
+    <img src="/static/temp.png" align="middle" />
+    <p></p>
+    <p>$n_{\sigma_{x_1}} = {{fit_info.x1_nstds}}$<br>$n_{\sigma_{c}} = {{fit_info.c_nstds}}$<br>$M_\mathrm{peak} = {{fit_info.peak_absmag}}$</p>
+    <p></p>
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+{% endblock content %}
